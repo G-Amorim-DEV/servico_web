@@ -1,0 +1,26 @@
+[
+  {
+    "nome": "Ana Maria Silva",
+    "idade": 32,
+    "profissao": "Designer Gráfica",
+    "cidade": "Belo Horizonte"
+  },
+  {
+    "nome": "João Pedro Santos",
+    "idade": 45,
+    "profissao": "Engenheiro de Software",
+    "cidade": "São Paulo"
+  },
+  {
+    "nome": "Carla Oliveira",
+    "idade": 28,
+    "profissao": "Jornalista",
+    "cidade": "Rio de Janeiro"
+  },
+  {
+    "nome": "Ricardo Almeida",
+    "idade": 51,
+    "profissao": "Consultor Financeiro",
+    "cidade": "Porto Alegre"
+  }
+]
