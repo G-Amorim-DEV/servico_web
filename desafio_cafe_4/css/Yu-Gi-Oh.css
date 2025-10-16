@@ -1,0 +1,151 @@
+/* ===============================
+   1. Estilos Base e Tipografia
+   =============================== */
+body {
+    font-family: 'Arial', sans-serif; /* Fonte mais clássica */
+    background-color: #1e1e1e; /* Fundo escuro para destacar as cartas */
+    color: #f5f5f5; /* Texto claro */
+    margin: 0;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #ffcc00; /* Dourado */
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para destaque */
+}
+
+/* ===============================
+   2. Container Flexbox
+   =============================== */
+.container-cartas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px; /* Espaço ajustado entre as cartas */
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* ===============================
+   3. Estilo da Carta Individual
+   =============================== */
+.carta {
+    background-color: #ffffff; /* Fundo branco para a carta */
+    color: #333; /* Texto escuro dentro da carta */
+    border: 5px solid #ffcc00; /* Borda dourada grossa */
+    border-radius: 12px; /* Cantos levemente arredondados */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 204, 0, 0.5); /* Sombra 3D */
+    padding: 10px; /* Padding interno menor para focar na borda */
+    width: 270px; /* Largura levemente maior */
+    min-height: 480px; /* Altura mínima ajustada */
+    
+    /* Organização interna da carta */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+    /* Transições e Hover */
+    transition: all 0.3s ease-in-out;
+}
+
+.carta:hover {
+    transform: scale(1.05) translateY(-8px); /* Efeito 3D mais pronunciado */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), 0 0 20px #ff0000; /* Brilho vermelho no hover */
+}
+
+/* ===============================
+   4. Componentes da Carta
+   =============================== */
+
+/* Nome da Carta */
+.carta-nome {
+    font-family: 'Georgia', serif;
+    color: #0d47a1; /* Azul forte */
+    font-size: 1.4em;
+    font-weight: bold;
+    margin: 5px 0 10px 0;
+    padding-bottom: 5px;
+    border-bottom: 3px solid #ccc; /* Linha de separação */
+}
+
+/* Imagem da Carta */
+.carta-imagem {
+    margin-bottom: 15px;
+}
+
+.carta-imagem img {
+    max-width: 95%; /* Imagem ligeiramente menor que o container */
+    height: auto;
+    border-radius: 4px;
+    border: 2px solid #333; /* Borda preta fina */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Descrição da Carta */
+.carta-descricao {
+    font-size: 0.85em;
+    line-height: 1.5;
+    text-align: justify; /* Alinhamento justificado para texto de descrição */
+    padding: 5px;
+    background-color: #eee; /* Fundo leve para o campo de texto */
+    border: 1px dashed #999;
+    border-radius: 4px;
+    flex-grow: 1; /* Garante que ocupe todo o espaço restante */
+}
+
+.carta-descricao p {
+    margin: 0;
+}
+
+/* ===============================
+   5. Estilo de Carta Clicada (Expandida)
+   =============================== */
+.carta.expandida {
+    /* Aumenta o tamanho da carta */
+    width: 350px; /* Largura maior */
+    min-height: 550px; /* Altura mínima maior */
+    
+    /* Move para a frente para não ser coberta por outras */
+    z-index: 100; 
+    
+    /* Centraliza a expansão na tela */
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.1); /* Um pouco maior e centralizado */
+    
+    /* Adicione um fundo para dar mais destaque */
+    background-color: #f9f9f9; 
+    
+    /* Remova o transform no hover, senão ele vai brigar com o transform da expansão */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 30px #00ff00; /* Brilho verde */
+}
+
+/* Garante que o efeito de hover não atrapalhe a carta expandida */
+.carta.expandida:hover {
+    transform: translate(-50%, -50%) scale(1.1); /* Mantém o transform de expansão */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 30px #00ff00; 
+}
+
+/* ===============================
+   6. Layout de Linhas Específico (1, 2, 2)
+   =============================== */
+.container-cartas {
+    display: flex;
+    flex-direction: column; /* FORÇA O EMPILHAMENTO DAS LINHAS */
+    align-items: center; 
+    /* ... */
+}
+
+.linha-cartas {
+    display: flex;
+    justify-content: center; /* CENTRALIZA AS CARTAS */
+    /* ... */
+}
+
+.linha-cartas.linha-2 {
+    max-width: 650px; /* LIMITA O ESPAÇO PARA APENAS 2 CARTAS */
+}
