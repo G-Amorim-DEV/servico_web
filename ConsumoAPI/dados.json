@@ -1,0 +1,11 @@
+{
+    "nome": "Gustavo",
+    "idade": "30",
+    "vivo": true,
+    "hobbies": ["ler", "filme"],
+
+    "gatos":{
+        "nomes": ["Pandora", "Yuki"],
+        "Raça": "Vira-lata"
+    }
+}

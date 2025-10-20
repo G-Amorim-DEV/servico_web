@@ -1,0 +1,28 @@
+{
+    "pa\u00e7ocas": {
+        "Pa\u00e7oca de amendoim": {
+            "Nome": "Pa\u00e7oca de Amendoin",
+            "Tipo": "Doce",
+            "Origem": "Brasileira",
+            "Nutrientes": "Pa\u00e7ocativos"
+        },
+        "Pa\u00e7oca de chocolate": {
+            "Nome": "Pa\u00e7oca de chocolate",
+            "Tipo": "Doce",
+            "Origem": "Brasileira",
+            "Nutrientes": "Pa\u00e7ocativos ABC+"
+        },
+        "Pa\u00e7oca de Mel": {
+            "Nome": "Pa\u00e7oca de Mel",
+            "Tipo": "Doce",
+            "Origem": "Irlanda",
+            "Nutrientes": "Nenhum"
+        },
+        "Pa\u00e7oca de Coco": {
+            "Nome": "Pa\u00e7oca de Coco",
+            "Tipo": "Doce",
+            "Origem": "Hawai",
+            "Nutrientes": "Cocoativos"
+        }
+    }
+}
