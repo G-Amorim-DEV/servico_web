@@ -1,0 +1,42 @@
+{
+    "comidas": {
+        "Parmegiana de Frango":{
+        "Nome":"Parmegiana de Franco",
+        "Tipo":"Salgada",
+        "Origem":"Italiana",
+        "Nutricao":"Proteínas, Carboidratos, Gorduras, Sódio, Vitaminas e minerais"
+        },
+        "Pizza Marguerita":{
+            "Nome":"Pizza Marguerita",
+            "Tipo":"Salgada",
+            "Origem":"Italiana",
+            "Nutricao":"Proteínas, Carboidratos, Gorduras"
+        },
+        "Feijoada":{
+            "Nome":"Feijoada",
+            "Tipo":"Salgada",
+            "Origem":"Brasileira",
+            "Nutricao":"Proteínas, Fibras e Minerais como ferro, Cálcio e Fósforo"
+        },
+        "Lasanha":{
+            "Nome":"Lasanha",
+            "Tipo":"Salgada",
+            "Origem":"Italiana",
+            "Nutricao":"Calorias, Carboidratos, Gorduras e Sódio" 
+        },
+
+        "Sushi": {
+            "Nome": "Sushi",
+            "Tipo": "Salgada",
+            "Origem": "Japonesa",
+            "Nutricao": "Proteínas, Ômega-3, Carboidratos"
+        },
+        "Tacos": {
+            "Nome": "Tacos",
+            "Tipo": "Salgada",
+            "Origem": "Mexicana",
+            "Nutricao": "Proteínas, Fibras, Carboidratos"
+        }
+    }
+}
+

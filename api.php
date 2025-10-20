@@ -3,31 +3,51 @@
 /* Estruturando uma API */
 
 //Cabeçalho da API
-//header("Content-Type: aplication/json; charset=UTF-8");
-//header("Access-Control-Allow-Origin: *");
+header("Content-Type: application/json; charset= UTF-8");
+header("Access-Control-Allow-Origin: *");
 
 // Sistema do Serviço Web
 
 //Leitura do arquivo JSON e armazenando e transformando em Array na variável
 $pacocas = json_decode(file_get_contents("pacoca.json"), true);
 
-$pacocas['paçocas']['Paçoca de Mel']['Nome'] = 'Paçoca de Mel';
-$pacocas['paçocas']['Paçoca de Mel']['Tipo'] = 'Doce';
-$pacocas['paçocas']['Paçoca de Mel']['Origem'] = 'Irlanda';
-$pacocas['paçocas']['Paçoca de Mel']['Nutrientes'] = 'Nenhum';
+//Variável para guardar o que tem na posição enviada pelo link
+$pacoca_especifica = $_GET['pacoca'];
 
-$pacocas['paçocas']['Paçoca de Coco']['Nome'] = 'Paçoca de Coco';
-$pacocas['paçocas']['Paçoca de Coco']['Tipo'] = 'Doce';
-$pacocas['paçocas']['Paçoca de Coco']['Origem'] = 'Hawai';
-$pacocas['paçocas']['Paçoca de Coco']['Nutrientes'] = 'Cocoativos';
+
+//Saída da API
+switch($pacoca_especifica){
+    case "coco":
+        $pacoca_coco = $pacocas['paçocas']['Paçoca de Coco'];
+        echo json_encode($pacoca_coco);
+        break;
+
+    default:
+        echo json_encode($pacocas);
+        break;
+}
+
+
+function cadastrar_pacoca($nome, $tipo, $origem, $nutrientes){
+
+    $pacocas['paçocas'][$nome]['Nome'] = $nome;
+    $pacocas['paçocas'][$nome]['Tipo'] = $tipo;
+    $pacocas['paçocas'][$nome]['Origem'] = $origem;
+    $pacocas['paçocas'][$nome]['Nutrientes'] = $nutrientes;
+
+    if(false){
+        salvar_dados($pacocas);
+    }
+}
 
 //echo $pacocas['paçocas']['Paçoca de Coco']['Nome']; 
 //echo $pacocas['paçocas']['Paçoca de Mel']['Nome'];
 
+function salvar_dados($variavel){
 //Salvar dados no arquivo JSOM
-file_put_contents('pacoca.json', json_encode($pacocas, JSON_PRETTY_PRINT));
-
+    file_put_contents('pacoca.json', json_encode($variavel, JSON_PRETTY_PRINT));
+}
 
 //Saida da API 
 
-//echo Json_encode($alunos)
+//echo Json_encode($pacocas);
