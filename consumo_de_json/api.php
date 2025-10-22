@@ -12,7 +12,7 @@ header("Access-Control-Allow-Origin: *");
 $dados_comidas = json_decode(file_get_contents("comida.json"), true);
 
 // Variável para guardar o que tem na posição enviada pelo link
-$comida_especifica = $_GET['comida'] ?? null; 
+$comida_especifica = $_GET['comida'] ?? null;
 
 // Saída da API
 switch($comida_especifica){
