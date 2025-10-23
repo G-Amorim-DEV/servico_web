@@ -2,7 +2,7 @@
 
 /* CONSUMO DE API - Utilização de um serviço web */
 
-$url = "http://localhost/servico_web/consumo_de_json/api.php?comida=Parmegiana+de+Frango&info=ingredientes";
+$url = "http://localhost/servico_web/consumo_de_json/apiGet.php?comida=Parmegiana+de+Frango&info=ingredientes";
 
 // guardar um valor de resposta da API
 $resposta = file_get_contents($url);
