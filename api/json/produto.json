@@ -1,0 +1,25 @@
+{
+    "salgado":{
+        "coxinha":{
+            "nome":"Coxinha",
+            "ingredientes":"frango desfiado",
+            "origem":"Brasileira",
+            "nutricao":"proteina e carboitrato"
+        },
+        "esfira":{
+            "nome":"Esfira de carne",
+            "ingredientes":"carne moida",
+            "origem":"Árabe",
+            "nutricao":"proteina e carboitrato"
+        },
+        "corndog":{
+            "nome":"Corn Dog",
+            "ingredientes":"salsicha e queijo",
+            "origem":"americana",
+            "nutricao":"proteina e colesterol"
+        }
+    }
+}
+
+    
+    
