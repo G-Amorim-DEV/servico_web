@@ -1,0 +1,28 @@
+{
+  "pães": {
+    "Pão frances": {
+      "nome": "Pão francês",
+      "Tipo": "Salgado",
+      "Origem": "França",
+      "Nutrientes": "Carboidratos, proteínas, fibras"
+    },
+    "Pão forma": {
+      "nome": "Pão de forma",
+      "Tipo": "Salgado",
+      "Origem": "Inglaterra",
+      "Nutrientes": "Carboidratos, fibras"
+    },
+    "Pão centeio": {
+      "nome": "Pão de centeio",
+      "Tipo": "Salgado",
+      "Origem": "Alemanha",
+      "Nutrientes": "Carboidratos complexos, fibras, vitaminas B"
+    },
+    "Pão doce": {
+      "nome": "Pão doce",
+      "Tipo": "Doce",
+      "Origem": "Brasil",
+      "Nutrientes": "Carboidratos, açúcares"
+    }
+  }
+}

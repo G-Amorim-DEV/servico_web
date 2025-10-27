@@ -1,4 +1,4 @@
- <?php
+<?php
 
 /* Estruturando uma API */
 
@@ -6,20 +6,21 @@
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Origin: *");
 
-
 $metodo = $_SERVER['REQUEST_METHOD'];
 
-switch ($metodo){
+switch ($metodo) {
 
     case "GET":
         metodoGET();
         break;
 
     case "POST":
+        // futuramente aqui chamaremos metodoPOST() se quiser cadastrar
         break;
 
     default:
-        echo "Método usado não foi identificado";
+        echo json_encode(["erro" => "Método usado não foi identificado"], JSON_UNESCAPED_UNICODE);
+        break;
 }
 
 
@@ -36,12 +37,15 @@ function metodoGET() {
 
         $comida = $dados_comidas['comidas'][$comida_especifica];
 
-        switch($info_solicitada) {
+        switch ($info_solicitada) {
             case "nome":
                 if (isset($comida['Nome'])) {
                     echo json_encode(['Nome' => $comida['Nome']], JSON_UNESCAPED_UNICODE);
                 } else {
-                    echo json_encode(['erro' => "Campo 'Nome' não encontrado para {$comida_especifica}."], JSON_UNESCAPED_UNICODE);
+                    echo json_encode([
+                        'erro' => "Campo 'Nome' não encontrado para {$comida_especifica}.",
+                        'dados' => $comida
+                    ], JSON_UNESCAPED_UNICODE);
                 }
                 break;
 
@@ -49,7 +53,10 @@ function metodoGET() {
                 if (isset($comida['Tipo'])) {
                     echo json_encode(['Tipo' => $comida['Tipo']], JSON_UNESCAPED_UNICODE);
                 } else {
-                    echo json_encode(['erro' => "Campo 'Tipo' não encontrado para {$comida_especifica}."], JSON_UNESCAPED_UNICODE);
+                    echo json_encode([
+                        'erro' => "Campo 'Tipo' não encontrado para {$comida_especifica}.",
+                        'dados' => $comida
+                    ], JSON_UNESCAPED_UNICODE);
                 }
                 break;
 
@@ -57,7 +64,10 @@ function metodoGET() {
                 if (isset($comida['Ingredientes'])) {
                     echo json_encode(['Ingredientes' => $comida['Ingredientes']], JSON_UNESCAPED_UNICODE);
                 } else {
-                    echo json_encode(['erro' => "Campo 'ingredientes' não encontrado para {$comida_especifica}."], JSON_UNESCAPED_UNICODE);
+                    echo json_encode([
+                        'erro' => "Campo 'Ingredientes' não encontrado para {$comida_especifica}.",
+                        'dados' => $comida
+                    ], JSON_UNESCAPED_UNICODE);
                 }
                 break;
 
@@ -72,7 +82,10 @@ function metodoGET() {
                 if (isset($comida['Nutricao'])) {
                     echo json_encode(['Nutricao' => $comida['Nutricao']], JSON_UNESCAPED_UNICODE);
                 } else {
-                    echo json_encode(['erro' => "Campo 'Nutricao' não encontrado para {$comida_especifica}."], JSON_UNESCAPED_UNICODE);
+                    echo json_encode([
+                        'erro' => "Campo 'Nutricao' não encontrado para {$comida_especifica}.",
+                        'dados' => $comida
+                    ], JSON_UNESCAPED_UNICODE);
                 }
                 break;
 
@@ -81,30 +94,39 @@ function metodoGET() {
                 echo json_encode($comida, JSON_UNESCAPED_UNICODE);
                 break;
         }
+
     } else {
+        // Caso a comida não exista, exibe a lista completa
         if ($comida_especifica) {
-            echo json_encode(['erro' => "Comida '{$comida_especifica}' não encontrada."], JSON_UNESCAPED_UNICODE);
+            echo json_encode([
+                'erro' => "Comida '{$comida_especifica}' não encontrada. Exibindo lista completa:",
+                'todas_comidas' => $dados_comidas['comidas']
+            ], JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
         } else {
-            echo json_encode($dados_comidas, JSON_UNESCAPED_UNICODE);
+            echo json_encode($dados_comidas, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
         }
     }
 }
 
-function cadastrar_comida($nome, $tipo, $ingredientes, $origem, $nutrientes){
+
+// Função para cadastrar uma nova comida (ainda não usada)
+function cadastrar_comida($nome, $tipo, $ingredientes, $origem, $nutrientes) {
     // Carrega dados atuais, adiciona a nova comida e salva
     $dados_comidas = json_decode(file_get_contents("comida.json"), true);
     $dados_comidas['comidas'][$nome]['Nome'] = $nome;
     $dados_comidas['comidas'][$nome]['Tipo'] = $tipo;
-    $dados_comidas['comidas'][$nome]['Ingredientes'] = $tipo;
+    $dados_comidas['comidas'][$nome]['Ingredientes'] = $ingredientes;
     $dados_comidas['comidas'][$nome]['Origem'] = $origem;
     $dados_comidas['comidas'][$nome]['Nutricao'] = $nutrientes;
 
-    if(false){
+    if (false) { // mudar para true quando quiser testar o salvamento
         salvar_dados($dados_comidas);
     }
 }
 
-function salvar_dados($variavel){
+
+// Função auxiliar para salvar o arquivo JSON
+function salvar_dados($variavel) {
     file_put_contents('comida.json', json_encode($variavel, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 }
 
